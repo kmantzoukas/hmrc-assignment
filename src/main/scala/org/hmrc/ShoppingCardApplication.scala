@@ -13,4 +13,10 @@ object ShoppingCardApplication {
   }
 
   case class ShoppingCard(items: List[ShoppingItem])
+
+  def cost(sc: ShoppingCard): BigDecimal =
+    sc.items.foldRight(BigDecimal.valueOf(0.0)) {
+      case (Apple, total) => Apple.price + total
+      case (Orange, total) => Orange.price + total
+    }
 }
