@@ -13,4 +13,12 @@ object ShoppingCardApplication {
   }
 
   case class ShoppingCard(items: List[ShoppingItem])
+
+  def cost(shoppingCard: ShoppingCard): BigDecimal = {
+    val (apples, oranges) = shoppingCard.items.partition {
+      case Apple => true
+      case Orange => false
+    }
+    apples.size * Apple.price + oranges.size * Orange.price
+  }
 }
