@@ -19,6 +19,6 @@ object ShoppingCardApplication {
       case Apple => true
       case Orange => false
     }
-    apples.size * Apple.price + oranges.size * Orange.price
+    (apples.size - (apples.size / 2)) * Apple.price + (oranges.size - (oranges.size / 3)) * Orange.price
   }
 }
