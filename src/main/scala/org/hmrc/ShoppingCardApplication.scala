@@ -16,11 +16,11 @@ object ShoppingCardApplication {
 
   case class ShoppingCard(items: List[ShoppingItem])
 
-  def discount(size: Int, price: BigDecimal, numberOfItemsFree: Int) = (size / numberOfItemsFree) * price
+  def discount(size: Int, price: BigDecimal, numberOfItemsFree: Int): BigDecimal = (size / numberOfItemsFree) * price
 
-  def appleDiscount(size: Int) = discount(size, Apple.price, 2)
+  def appleDiscount(size: Int): BigDecimal = discount(size, Apple.price, 2)
 
-  def orangeDiscount(size: Int) = discount(size, Orange.price, 3)
+  def orangeDiscount(size: Int): BigDecimal = discount(size, Orange.price, 3)
 
   def cost(sc: ShoppingCard, applyDiscount: Boolean = false): BigDecimal = {
    sc.items
